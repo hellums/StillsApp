@@ -9,9 +9,9 @@ using StillsApp;
 
 namespace StillsApp.DL.Migrations.Sqlite
 {
-    [DbContext(typeof(DataContext))]
-    [Migration("20221012162307_addNullable")]
-    partial class addNullable
+    [DbContext(typeof(DataContext.SqliteDataContext))]
+    [Migration("20221012233907_initSqlite")]
+    partial class initSqlite
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -3,11 +3,24 @@ namespace StillsApp;
 using Microsoft.EntityFrameworkCore;
 using StillsApp.DL;
 
-public class DataContext : DbContext
+public partial class DataContext : DbContext
 {
-    public DataContext(DbContextOptions options) : base(options)
+/*    public DataContext(DbContextOptions options) : base(options)
     {
+    }*/
+    protected readonly IConfiguration Configuration;
+
+    public DataContext(IConfiguration configuration)
+    {
+        Configuration = configuration;
     }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+    {
+        // connect to sql server database
+        options.UseSqlServer(Configuration.GetConnectionString("StillsDB"));
+    }
+
     public DbSet<Owner>? Owners { get; set; }
     public DbSet<Distillery>? Distilleries { get; set; }
     public DbSet<Address>? Addresses { get; set; }

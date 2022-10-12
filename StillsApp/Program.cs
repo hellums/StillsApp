@@ -1,23 +1,25 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using static StillsApp.DataContext;
 
 namespace StillsApp
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var env = builder.Environment;
 
             // Add DI services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddMvc();
-            builder.Services.AddDbContext<DataContext>( options =>
-                options.UseSqlite("Data Source=DL/App.db")
-                .EnableSensitiveDataLogging()
-                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-                );
+
+            if (env.IsProduction())
+                builder.Services.AddDbContext<DataContext>();
+            else
+                builder.Services.AddDbContext<DataContext, SqliteDataContext>();
 
             builder.Services.AddSwaggerGen(opt =>
                 {
@@ -34,6 +36,7 @@ namespace StillsApp
                 app.UseHsts();
                 app.UseDeveloperExceptionPage();
             }
+
             // migrate any database changes on startup (includes initial db creation)
             using (var scope = app.Services.CreateScope())
             {

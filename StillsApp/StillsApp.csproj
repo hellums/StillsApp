@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="BL\" />
     <Folder Include="DL\Migrations\Sqlite\" />
+    <Folder Include="DL\Migrations\Sqlserver\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DL\App.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
