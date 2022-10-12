@@ -14,14 +14,12 @@ namespace StillsApp.UI.Controllers
             _context = context;
         }
 
-        // GET: api/Distilleries
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Distillery>>> GetDistilleries()
         {
             return await _context.Distilleries.ToListAsync();
         }
 
-        // GET: api/Distilleries/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Distillery>> GetDistillery(int id)
         {
@@ -35,8 +33,6 @@ namespace StillsApp.UI.Controllers
             return distillery;
         }
 
-        // PUT: api/Distilleries/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDistillery(int id, Distillery distillery)
         {
@@ -66,8 +62,6 @@ namespace StillsApp.UI.Controllers
             return NoContent();
         }
 
-        // POST: api/Distilleries
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Distillery>> PostDistillery(Distillery distillery)
         {
@@ -77,7 +71,6 @@ namespace StillsApp.UI.Controllers
             return CreatedAtAction("GetDistillery", new { id = distillery.Id }, distillery);
         }
 
-        // DELETE: api/Distilleries/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDistillery(int id)
         {

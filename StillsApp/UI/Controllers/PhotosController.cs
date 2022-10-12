@@ -14,14 +14,12 @@ namespace StillsApp.UI.Controllers
             _context = context;
         }
 
-        // GET: api/Photos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Photo>>> GetPhotos()
         {
             return await _context.Photos.ToListAsync();
         }
 
-        // GET: api/Photos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Photo>> GetPhoto(int id)
         {
@@ -35,8 +33,6 @@ namespace StillsApp.UI.Controllers
             return photo;
         }
 
-        // PUT: api/Photos/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPhoto(int id, Photo photo)
         {
@@ -66,8 +62,6 @@ namespace StillsApp.UI.Controllers
             return NoContent();
         }
 
-        // POST: api/Photos
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Photo>> PostPhoto(Photo photo)
         {
@@ -77,7 +71,6 @@ namespace StillsApp.UI.Controllers
             return CreatedAtAction("GetPhoto", new { id = photo.Id }, photo);
         }
 
-        // DELETE: api/Photos/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePhoto(int id)
         {

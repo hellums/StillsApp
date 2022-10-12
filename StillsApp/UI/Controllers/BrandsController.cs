@@ -20,14 +20,12 @@ namespace StillsApp.UI.Controllers
             _context = context;
         }
 
-        // GET: api/Brands
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Brand>>> GetBrands()
         {
             return await _context.Brands.ToListAsync();
         }
 
-        // GET: api/Brands/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Brand>> GetBrand(int id)
         {
@@ -41,8 +39,6 @@ namespace StillsApp.UI.Controllers
             return brand;
         }
 
-        // PUT: api/Brands/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBrand(int id, Brand brand)
         {
@@ -72,8 +68,6 @@ namespace StillsApp.UI.Controllers
             return NoContent();
         }
 
-        // POST: api/Brands
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Brand>> PostBrand(Brand brand)
         {
@@ -83,7 +77,6 @@ namespace StillsApp.UI.Controllers
             return CreatedAtAction("GetBrand", new { id = brand.Id }, brand);
         }
 
-        // DELETE: api/Brands/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBrand(int id)
         {

@@ -20,14 +20,12 @@ namespace StillsApp.UI.Controllers
             _context = context;
         }
 
-        // GET: api/Experiences
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Experience>>> GetExperiences()
         {
             return await _context.Experiences.ToListAsync();
         }
 
-        // GET: api/Experiences/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Experience>> GetExperience(int id)
         {
@@ -41,8 +39,6 @@ namespace StillsApp.UI.Controllers
             return experience;
         }
 
-        // PUT: api/Experiences/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutExperience(int id, Experience experience)
         {
@@ -72,8 +68,6 @@ namespace StillsApp.UI.Controllers
             return NoContent();
         }
 
-        // POST: api/Experiences
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Experience>> PostExperience(Experience experience)
         {
@@ -83,7 +77,6 @@ namespace StillsApp.UI.Controllers
             return CreatedAtAction("GetExperience", new { id = experience.Id }, experience);
         }
 
-        // DELETE: api/Experiences/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExperience(int id)
         {

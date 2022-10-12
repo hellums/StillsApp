@@ -20,7 +20,6 @@ namespace StillsApp.UI.Controllers
             _context = context;
         }
 
-        // GET: api/Addresses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Address>>> GetAddresses()
         {
@@ -41,8 +40,6 @@ namespace StillsApp.UI.Controllers
             return address;
         }
 
-        // PUT: api/Addresses/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAddress(int id, Address address)
         {
@@ -72,8 +69,6 @@ namespace StillsApp.UI.Controllers
             return NoContent();
         }
 
-        // POST: api/Addresses
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Address>> PostAddress(Address address)
         {
@@ -83,7 +78,6 @@ namespace StillsApp.UI.Controllers
             return CreatedAtAction("GetAddress", new { id = address.Id }, address);
         }
 
-        // DELETE: api/Addresses/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAddress(int id)
         {

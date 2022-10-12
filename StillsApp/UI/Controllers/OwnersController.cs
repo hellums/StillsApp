@@ -14,7 +14,6 @@ namespace StillsApp.UI.Controllers
             _context = context;
         }
 
-        // GET: api/Owners
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Owner>>> GetOwners()
         {
@@ -23,7 +22,6 @@ namespace StillsApp.UI.Controllers
                 .ToListAsync();
         }
 
-        // GET: api/Owners/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Owner>> GetOwner(int id)
         {
@@ -37,8 +35,6 @@ namespace StillsApp.UI.Controllers
             return owner;
         }
 
-        // PUT: api/Owners/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOwner(int id, Owner owner)
         {
@@ -68,8 +64,6 @@ namespace StillsApp.UI.Controllers
             return NoContent();
         }
 
-        // POST: api/Owners
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Owner>> PostOwner(Owner owner)
         {
@@ -79,7 +73,6 @@ namespace StillsApp.UI.Controllers
             return CreatedAtAction("GetOwner", new { id = owner.Id }, owner);
         }
 
-        // DELETE: api/Owners/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOwner(int id)
         {
