@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using StillsApp;
+using StillsApp.DL;
 
 namespace StillsApp.UI.Controllers
 {
@@ -29,7 +29,9 @@ namespace StillsApp.UI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Experience>> GetExperience(int id)
         {
-            var experience = await _context.Experiences.FindAsync(id);
+            var experience = await _context.Experiences
+                .Include(experience => experience.Tickets)
+                .SingleOrDefaultAsync(i => i.Id == id);
 
             if (experience == null)
             {

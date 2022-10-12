@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using StillsApp;
+using StillsApp.DL;
 
 namespace StillsApp.UI.Controllers
 {
@@ -29,7 +29,11 @@ namespace StillsApp.UI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Brand>> GetBrand(int id)
         {
-            var brand = await _context.Brands.FindAsync(id);
+            var brand = await _context.Brands
+                .Include(brand => brand.Name)
+                .Include(brand => brand.Category)
+                .Include(brand => brand.DistilleryId)
+                .SingleOrDefaultAsync(i => i.Id == id);
 
             if (brand == null)
             {

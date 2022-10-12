@@ -1,8 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using StillsApp;
-using System.Configuration;
 
 namespace StillsApp
 {
@@ -20,6 +18,7 @@ namespace StillsApp
                 .EnableSensitiveDataLogging()
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
                 );
+
             builder.Services.AddSwaggerGen(opt =>
                 {
                     opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
@@ -33,6 +32,7 @@ namespace StillsApp
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+                app.UseDeveloperExceptionPage();
             }
             // migrate any database changes on startup (includes initial db creation)
             using (var scope = app.Services.CreateScope())
@@ -41,9 +41,9 @@ namespace StillsApp
                 dataContext.Database.Migrate();
             }
 
-            app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Parts API v1"));
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -52,7 +52,9 @@ namespace StillsApp
             app.UseAuthorization();
 
             app.MapRazorPages();
+
             app.MapControllers();
+
             app.Run();
         }
     }

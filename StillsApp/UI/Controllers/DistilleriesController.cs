@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StillsApp.DL;
 
 namespace StillsApp.UI.Controllers
 {
@@ -20,10 +21,16 @@ namespace StillsApp.UI.Controllers
             return await _context.Distilleries.ToListAsync();
         }
 
-        [HttpGet("{id}")]
+    [HttpGet("{id}")]
         public async Task<ActionResult<Distillery>> GetDistillery(int id)
         {
-            var distillery = await _context.Distilleries.FindAsync(id);
+            var distillery = await _context.Distilleries
+                .Include(distilleries => distilleries.Addresses)
+                .Include(distilleries => distilleries.Experiences)
+                .Include(distilleries => distilleries.Photos)
+                .Include(distilleries => distilleries.Reviews)
+                .Include(distilleries => distilleries.Brands)
+                .SingleOrDefaultAsync(i => i.Id == id);
 
             if (distillery == null)
             {

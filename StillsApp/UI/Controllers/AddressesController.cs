@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using StillsApp;
+using StillsApp.DL;
 
 namespace StillsApp.UI.Controllers
 {
@@ -26,7 +26,6 @@ namespace StillsApp.UI.Controllers
             return await _context.Addresses.ToListAsync();
         }
 
-        // GET: api/Addresses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Address>> GetAddress(int id)
         {
