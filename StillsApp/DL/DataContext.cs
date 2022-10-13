@@ -5,9 +5,6 @@ using StillsApp.DL;
 
 public partial class DataContext : DbContext
 {
-/*    public DataContext(DbContextOptions options) : base(options)
-    {
-    }*/
     protected readonly IConfiguration Configuration;
 
     public DataContext(IConfiguration configuration)

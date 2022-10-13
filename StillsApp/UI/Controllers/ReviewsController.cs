@@ -6,43 +6,43 @@ namespace StillsApp.UI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AddressesController : ControllerBase
+    public class ReviewsController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public AddressesController(DataContext context)
+        public ReviewsController(DataContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Address>>> GetAddresses()
+        public async Task<ActionResult<IEnumerable<Review>>> GetReviews()
         {
-            return await _context.Addresses.ToListAsync();
+            return await _context.Reviews.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Address>> GetAddress(int id)
+        public async Task<ActionResult<Review>> GetReview(int id)
         {
-            var address = await _context.Addresses.FindAsync(id);
+            var Review = await _context.Reviews.FindAsync(id);
 
-            if (address == null)
+            if (Review == null)
             {
                 return NotFound();
             }
 
-            return address;
+            return Review;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAddress(int id, Address address)
+        public async Task<IActionResult> PutReview(int id, Review review)
         {
-            if (id != address.Id)
+            if (id != review.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(address).State = EntityState.Modified;
+            _context.Entry(review).State = EntityState.Modified;
 
             try
             {
@@ -50,7 +50,7 @@ namespace StillsApp.UI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AddressExists(id))
+                if (!ReviewExists(id))
                 {
                     return NotFound();
                 }
@@ -64,32 +64,32 @@ namespace StillsApp.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Address>> PostAddress(Address address)
+        public async Task<ActionResult<Review>> PostReview(Review review)
         {
-            _context.Addresses.Add(address);
+            _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAddress", new { id = address.Id }, address);
+            return CreatedAtAction("GetReview", new { id = review.Id }, review);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAddress(int id)
+        public async Task<IActionResult> DeleteReview(int id)
         {
-            var address = await _context.Addresses.FindAsync(id);
-            if (address == null)
+            var review = await _context.Reviews.FindAsync(id);
+            if (review == null)
             {
                 return NotFound();
             }
 
-            _context.Addresses.Remove(address);
+            _context.Reviews.Remove(review);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool AddressExists(int id)
+        private bool ReviewExists(int id)
         {
-            return _context.Addresses.Any(e => e.Id == id);
+            return _context.Reviews.Any(e => e.Id == id);
         }
     }
 }
