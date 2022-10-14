@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DL\App.db" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="DL\Migrations\Sqlite\" />
     <Folder Include="DL\Migrations\Sqlserver\" />
   </ItemGroup>
@@ -25,9 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="DL\App.db">
+    <Resource Include="DL\App.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Resource>
   </ItemGroup>
 
 </Project>
