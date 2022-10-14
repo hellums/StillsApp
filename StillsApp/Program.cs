@@ -28,9 +28,9 @@ namespace StillsApp
             //API controllers
             services.AddControllers();
 
-            if (env.IsProduction())
+            /*if (env.IsProduction())
                 services.AddDbContext<DataContext>();
-            else
+            else*/
                 services.AddDbContext<DataContext, SqliteDataContext>();
 
             services.AddSwaggerGen(opt =>
@@ -53,7 +53,7 @@ namespace StillsApp
             // migrate any database changes on startup (includes initial db creation)
             using (var scope = app.Services.CreateScope())
             {
-                var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+                var dataContext = scope.ServiceProvider.GetRequiredService<SqliteDataContext>();
                 dataContext.Database.Migrate();
             }
 
