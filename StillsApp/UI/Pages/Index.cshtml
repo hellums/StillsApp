@@ -9,7 +9,7 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-@inject StillsApp.BL.DistilleryService distilleryService
+@inject StillsApp.BL.IDistilleryService distilleryService
 
 <h3>Kentucky Bourbon Distilleries</h3>
 <img src="data:image/jpeg;base64,@distilleryService.GetPhoto(1)" alt="Description of the image" />

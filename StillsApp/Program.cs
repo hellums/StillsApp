@@ -18,7 +18,7 @@ namespace StillsApp
 
             // Add DI services to the container.
             services.AddScoped<IDistilleryService, DistilleryService>();
-            services.AddTransient<DistilleryService>();
+            //services.AddTransient<IDistilleryService, DistilleryService>();
 
             //Web pages
             services.AddRazorPages();
