@@ -5,10 +5,6 @@ VisualStudioVersion = 17.4.32916.344
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StillsApp", "StillsApp\StillsApp.csproj", "{66D4AEDE-739A-4B38-953C-776D43434E7E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillsConsoleUI", "SkillsConsoleUI\SkillsConsoleUI.csproj", "{F4F02690-E19C-4C2D-A181-F8E91F8C26E4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StillsMVC", "StillsMVC\StillsMVC.csproj", "{EADF747D-5043-4D33-9C8E-1EE5A5946FB4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{66D4AEDE-739A-4B38-953C-776D43434E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D4AEDE-739A-4B38-953C-776D43434E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D4AEDE-739A-4B38-953C-776D43434E7E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4F02690-E19C-4C2D-A181-F8E91F8C26E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4F02690-E19C-4C2D-A181-F8E91F8C26E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4F02690-E19C-4C2D-A181-F8E91F8C26E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4F02690-E19C-4C2D-A181-F8E91F8C26E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EADF747D-5043-4D33-9C8E-1EE5A5946FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EADF747D-5043-4D33-9C8E-1EE5A5946FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EADF747D-5043-4D33-9C8E-1EE5A5946FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EADF747D-5043-4D33-9C8E-1EE5A5946FB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
