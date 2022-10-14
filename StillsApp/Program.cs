@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using StillsApp.BL;
 using static StillsApp.DataContext;
