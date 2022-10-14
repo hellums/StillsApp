@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StillsApp.BL;
 using StillsApp.DL;
 
 namespace StillsApp.UI.Controllers
@@ -9,35 +10,30 @@ namespace StillsApp.UI.Controllers
     public class DistilleriesController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly IDistilleryService _distilleryService;
 
-        public DistilleriesController(DataContext context)
+        public DistilleriesController(IDistilleryService distilleryService)
+        //public DistilleriesController(DataContext context)
         {
-            _context = context;
+            _distilleryService = distilleryService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Distillery>>> GetDistilleries()
+        public ActionResult GetDistilleries()
         {
-            return await _context.Distilleries.ToListAsync();
+            var response = _distilleryService.GetAll();
+            return Ok(response);
         }
 
-    [HttpGet("{id}")]
-        public async Task<ActionResult<Distillery>> GetDistillery(int id)
+        [HttpGet("{id}")]
+        public ActionResult<Distillery> GetDistillery(int id)
         {
-            var distillery = await _context.Distilleries
-                .Include(distilleries => distilleries.Addresses)
-                .Include(distilleries => distilleries.Experiences)
-                .Include(distilleries => distilleries.Photos)
-                .Include(distilleries => distilleries.Reviews)
-                .Include(distilleries => distilleries.Brands)
-                .SingleOrDefaultAsync(i => i.Id == id);
-
-            if (distillery == null)
-            {
-                return NotFound();
-            }
-
-            return distillery;
+            var response = _distilleryService.GetById(id);
+            if (response == null) 
+                { 
+                    return NotFound(); 
+                }
+            return Ok(response);
         }
 
         [HttpPut("{id}")]

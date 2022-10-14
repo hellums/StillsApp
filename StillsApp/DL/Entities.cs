@@ -9,7 +9,6 @@ public class Address
     public string? PostalCode { get; set; }
     public string? Country { get; set; }
     public string? Phone { get; set; }
-    //public Distillery Distillery { get; set; }
     public int DistilleryId { get; set; }
 }
 
@@ -19,7 +18,6 @@ public class Brand
     public string? Name { get; set; }
     public string? Category { get; set; }
     public List<Recipe>? Recipes { get; set; }
-    //public Distillery Distillery { get; set; }
     public int DistilleryId { get; set; }
 }
 public class Distillery
@@ -31,7 +29,6 @@ public class Distillery
     public List<Brand>? Brands { get; set; }
     public List<Photo>? Photos { get; set; }
     public List<Review>? Reviews { get; set; }
-    //public Owner Owner { get; set; }
     public int OwnerId { get; set; }
 }
 
@@ -44,7 +41,6 @@ public class Experience
     public List<Ticket>? Tickets { get; set; }
     public Distillery? Distillery { get; set; }
     public int DistilleryId { get; set; }
-    //public Brand Brand { get; set; }
     public int BrandId { get; set; }
 }
 
@@ -62,7 +58,6 @@ public class Photo
     public string? FileName { get; set; }
     public string? Base64Encoding { get; set; }
     public string? Category { get; set; }
-    //public Distillery Distillery { get; set; }
     public int DistilleryId { get; set; }
 }
 
@@ -75,7 +70,6 @@ public class Recipe
     public string? PercentWheat { get; set; }
     public string? PercentBarley { get; set; }
     public string? PercentRye { get; set; }
-    //public Brand Brand { get; set; }
     public int BrandId { get; set; }
 }
 
@@ -84,7 +78,6 @@ public class Review
     public int Id { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
-    //public Distillery Distillery { get; set; }
     public int DistilleryId { get; set; }
 }
 
@@ -94,6 +87,5 @@ public class Ticket
     public string? Title { get; set; }
     public string? Description { get; set; }
     public string? Price { get; set; }
-    //Experience Experience { get; set; }
     public int ExperienceId { get; set; }
 }

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StillsApp", "StillsApp\Stil
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkillsConsoleUI", "SkillsConsoleUI\SkillsConsoleUI.csproj", "{F4F02690-E19C-4C2D-A181-F8E91F8C26E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StillsMVC", "StillsMVC\StillsMVC.csproj", "{EADF747D-5043-4D33-9C8E-1EE5A5946FB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StillsMVC", "StillsMVC\StillsMVC.csproj", "{EADF747D-5043-4D33-9C8E-1EE5A5946FB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

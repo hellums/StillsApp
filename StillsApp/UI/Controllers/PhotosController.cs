@@ -22,7 +22,7 @@ namespace StillsApp.UI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Photo>> GetPhoto(int id)
+        public async Task<ActionResult<String>> GetPhoto(int id)
         {
             var photo = await _context.Photos.FindAsync(id);
 
@@ -31,7 +31,7 @@ namespace StillsApp.UI.Controllers
                 return NotFound();
             }
 
-            return photo;
+            return photo.Base64Encoding.ToString();
         }
 
         [HttpPut("{id}")]

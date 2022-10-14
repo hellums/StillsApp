@@ -24,11 +24,11 @@ namespace StillsApp.UI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Brand>> GetBrand(int id)
         {
-            var brand = await _context.Brands
-                .Include(brand => brand.Name)
+            var brand = _context.Brands.Find(id);
+                /*.Include(brand => brand.Name)
                 .Include(brand => brand.Category)
                 .Include(brand => brand.DistilleryId)
-                .SingleOrDefaultAsync(i => i.Id == id);
+                .SingleOrDefaultAsync(i => i.Id == id);*/
 
             if (brand == null)
             {

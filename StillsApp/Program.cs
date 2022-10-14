@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using StillsApp.BL;
 using static StillsApp.DataContext;
 
 namespace StillsApp
@@ -11,22 +14,32 @@ namespace StillsApp
         {
             var builder = WebApplication.CreateBuilder(args);
             var env = builder.Environment;
+            var services = builder.Services;
 
             // Add DI services to the container.
-            builder.Services.AddRazorPages();
-            builder.Services.AddMvc();
+            services.AddScoped<IDistilleryService, DistilleryService>();
+            services.AddTransient<DistilleryService>();
+
+            //Web pages
+            services.AddRazorPages();
+            services.Configure<RazorPagesOptions>
+            (options => options.RootDirectory = "/UI/Pages");
+
+            //API controllers
+            services.AddControllers();
 
             if (env.IsProduction())
-                builder.Services.AddDbContext<DataContext>();
+                services.AddDbContext<DataContext>();
             else
-                builder.Services.AddDbContext<DataContext, SqliteDataContext>();
+                services.AddDbContext<DataContext, SqliteDataContext>();
 
-            builder.Services.AddSwaggerGen(opt =>
+            services.AddSwaggerGen(opt =>
                 {
-                    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
+                    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "StillsAPI", Version = "v1" });
                 });
 
-            var app = builder.Build();
+    
+        var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

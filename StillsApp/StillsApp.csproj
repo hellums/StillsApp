@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BL\" />
     <Folder Include="DL\Migrations\Sqlite\" />
     <Folder Include="DL\Migrations\Sqlserver\" />
   </ItemGroup>
