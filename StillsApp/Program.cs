@@ -16,60 +16,42 @@ namespace StillsApp
             var env = builder.Environment;
             var services = builder.Services;
 
-            // Add DI services to the container.
-            services.AddScoped<IDistilleryService, DistilleryService>();
-            //services.AddTransient<IDistilleryService, DistilleryService>();
+            // Configure the DI service containers
+            services.AddDbContext<DataContext, SqliteDataContext>();
 
-            //Web pages
-            services.AddRazorPages();
-            services.Configure<RazorPagesOptions>
-            (options => options.RootDirectory = "/UI/Pages");
+            services.AddTransient<IDistilleryService, DistilleryService>();
 
-            //API controllers
             services.AddControllers();
-
-            /*if (env.IsProduction())
-                services.AddDbContext<DataContext>();
-            else*/
-                services.AddDbContext<DataContext, SqliteDataContext>();
 
             services.AddSwaggerGen(opt =>
                 {
                     opt.SwaggerDoc("v1", new OpenApiInfo { Title = "StillsAPI", Version = "v1" });
                 });
 
+            services.AddRazorPages();
+            services.Configure<RazorPagesOptions>
+            (options => options.RootDirectory = "/UI/Pages");
     
         var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configure the app and HTTP request pipeline
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
                 app.UseDeveloperExceptionPage();
             }
 
-            // migrate any database changes on startup (includes initial db creation)
-            using (var scope = app.Services.CreateScope())
-            {
-                var dataContext = scope.ServiceProvider.GetRequiredService<SqliteDataContext>();
-                dataContext.Database.Migrate();
-            }
-
+            app.MapControllers();
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Parts API v1"));
+            app.MapRazorPages();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
-            app.MapRazorPages();
-
-            app.MapControllers();
 
             app.Run();
         }
