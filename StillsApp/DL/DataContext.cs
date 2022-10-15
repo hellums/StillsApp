@@ -15,7 +15,7 @@ public partial class DataContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
         // connect to sql server database
-        options.UseSqlite(Configuration.GetConnectionString("StillsDevDB"));
+        options.UseSqlServer(Configuration.GetConnectionString("StillsAppDB"));
     }
 
     public DbSet<Owner>? Owners { get; set; }

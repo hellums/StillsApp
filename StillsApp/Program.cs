@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Writers;
 using StillsApp.BL;
 using static StillsApp.DataContext;
 
@@ -20,7 +22,12 @@ namespace StillsApp
             var services = builder.Services;
 
             // Configure the DI service containers
-            services.AddDbContext<DataContext, SqliteDataContext>();
+            if (env.IsProduction())
+                //launch SQL Server db service
+                services.AddDbContext<DataContext>();
+            else
+                //launch Sqlite db service
+                services.AddDbContext<DataContext, SqliteDataContext>();
 
             services.AddTransient<IDistilleryService, DistilleryService>();
 
@@ -36,6 +43,13 @@ namespace StillsApp
                 (options => options.RootDirectory = "/UI/Pages");
     
         var app = builder.Build();
+
+            // Migrate the database used by current profile, dev or production
+            using (var scope = app.Services.CreateScope())
+            {
+                var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+                dataContext.Database.Migrate();
+            }
 
             // Configure the app and HTTP request pipeline
             if (!app.Environment.IsDevelopment())
