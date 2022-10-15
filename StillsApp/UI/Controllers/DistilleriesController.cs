@@ -12,11 +12,13 @@ namespace StillsApp.UI.Controllers
         private readonly DataContext _context;
         private readonly IDistilleryService _distilleryService;
 
-        //public DistilleriesController(IDistilleryService distilleryService);
-        public DistilleriesController(DataContext context)
+        /*public DistilleriesController(DataContext context)
         {
             _context = context;
-            //_distilleryService = distilleryService;
+        }*/
+        public DistilleriesController(IDistilleryService distilleryService)
+        {
+            _distilleryService = distilleryService;
         }
 
         [HttpGet]
