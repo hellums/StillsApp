@@ -1,6 +1,7 @@
 namespace StillsApp;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using StillsApp.DL;
 
 public partial class DataContext : DbContext
@@ -15,7 +16,10 @@ public partial class DataContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
         // connect to sql server database
-        options.UseSqlServer(Configuration.GetConnectionString("StillsAppDB"));
+        options
+            .EnableSensitiveDataLogging()
+            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+            .UseSqlServer(Configuration.GetConnectionString("StillsAppDB"));
     }
 
     public DbSet<Owner>? Owners { get; set; }

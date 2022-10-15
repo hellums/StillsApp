@@ -11,7 +11,10 @@ public partial class DataContext
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             // connect to sqlite database
-            options.UseSqlite(Configuration.GetConnectionString("StillsAppDB"));
+            options
+                .EnableSensitiveDataLogging()
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+                .UseSqlite(Configuration.GetConnectionString("StillsAppDB"));
         }
     }
 }
