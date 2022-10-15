@@ -1,7 +1,6 @@
 namespace StillsApp;
 
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using StillsApp.DL;
 
 public partial class DataContext : DbContext
