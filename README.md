@@ -51,6 +51,3 @@ FEATURE Requirements (3-4, or more)
 - [x] Create 3 or more unit tests for your application
 
 ![WebApi2](https://user-images.githubusercontent.com/83464025/194877848-dc32a620-fe95-4d28-b5ef-6d5e522e9736.jpg)
-
-![Stills CRUD API](https://user-images.githubusercontent.com/83464025/194878366-dc1fcde6-e853-4434-85cf-acc6b34f0d52.jpg)
-
