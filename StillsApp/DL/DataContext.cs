@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using StillsApp.DL;
 
 public partial class DataContext : DbContext
+//SOLID Single Responsibility Principle: both production and development database contexts have a configuration with a single responsibility encapsulated within that context
 {
     protected readonly IConfiguration Configuration;
 
@@ -21,6 +22,8 @@ public partial class DataContext : DbContext
             .UseSqlServer(Configuration.GetConnectionString("StillsAppDB"));
     }
 
+    //SOLID Single Responsibility Principle: All DbSets have a single responsibility encapsulated within that DbSet, comprising a single table, entity, and class definition
+    //SOLID Dependency Inversion Principle: By using Entity Framework and underlying DbSets, higher level classes depend on abstraction instead of low level classes.
     public DbSet<Owner>? Owners { get; set; }
     public DbSet<Distillery>? Distilleries { get; set; }
     public DbSet<Address>? Addresses { get; set; }

@@ -1,5 +1,5 @@
 {
-  "profiles": {
+  "profiles": { //SOLID Single Responsiiblity Principle: each profile has a single responsibility encapsulated by that profile
     "StillsDevApp": {
       "commandName": "Project",
       "launchBrowser": true,

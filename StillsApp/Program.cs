@@ -26,7 +26,7 @@ namespace StillsApp
                 services.AddDbContext<DataContext>();
             else
                 //launch Sqlite db service
-                services.AddDbContext<DataContext, SqliteDataContext>();
+                services.AddDbContext<DataContext, SqliteDataContext>(); //SOLID Open-Closed Principle: By using an interface inheritance, the details of the underlying physical database interface can be implemented and changed without modifying the base class.
 
             services.AddTransient<IDistilleryService, DistilleryService>();
 
@@ -38,6 +38,7 @@ namespace StillsApp
                 });
 
             services.AddRazorPages();
+            //SOLID Dependency Inversion Principle: By separating User Interaction from the Data Layer and Business Logic, all classes and details depend on abstraction, and high-level classes do not depend on low level classes.
             services.Configure<RazorPagesOptions>
                 (options => options.RootDirectory = "/UI/Pages");
     
@@ -47,7 +48,8 @@ namespace StillsApp
             using (var scope = app.Services.CreateScope())
             {
                 var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
-                dataContext.Database.Migrate();
+                dataContext.Database.Migrate(); //SOLID Single Responsibility Principle:  both production and development database contexts have a configuration with a single responsibility encapsulated within that context
+
             }
 
             // Configure the app and HTTP request pipeline

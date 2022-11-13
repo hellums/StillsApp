@@ -1,5 +1,6 @@
 ﻿namespace StillsApp.DL;
 
+//SOLID Single Responsibility Principle: Each software module or a class should have one and only one reason to change. Adding an address or experience does not require changes to Distillery. Changing a review or a photo does not require changes to any other classes.
 public class Address
 {
     public int Id { get; set; }
