@@ -8,6 +8,8 @@ Statement of Work
 
 Create project proposal, code-first POCO entities and navigation properties, EF Core migrations, a cross-platform portable development database and production SQL Server contexts, basic anonymous httpGET and httpPOST API development endpoints, add the Swashbuckle UI, gather information related to domain entities, populate the development database with at least one full record or entity, perform unit testing.
 
+![WebApi2](https://user-images.githubusercontent.com/83464025/194877848-dc32a620-fe95-4d28-b5ef-6d5e522e9736.jpg)
+
 General Requirements
 - [x] Project is uploaded to your GitHub repository and shows at minimum 5 separate commits.
   - https://github.com/hellums/StillsApp/commits/root
@@ -49,5 +51,3 @@ FEATURE Requirements (3-4, or more)
   - https://github.com/hellums/StillsApp/blob/7d55570e5b20b728642cdea1ea4d4efb577f3f11/StillsApp/appsettings.json#L10
   - https://github.com/hellums/StillsApp/blob/7d55570e5b20b728642cdea1ea4d4efb577f3f11/StillsApp/DL/DataContext.cs#L26
 - [x] Create 3 or more unit tests for your application
-
-![WebApi2](https://user-images.githubusercontent.com/83464025/194877848-dc32a620-fe95-4d28-b5ef-6d5e522e9736.jpg)
