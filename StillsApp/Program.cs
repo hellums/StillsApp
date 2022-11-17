@@ -56,7 +56,6 @@ namespace StillsApp
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
-                app.UseHsts();
                 app.UseDeveloperExceptionPage();
             }
 
@@ -68,7 +67,6 @@ namespace StillsApp
             app.UseStaticFiles();
             app.MapRazorPages();
 
-            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
 
