@@ -6,16 +6,18 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>The information and images below are available in this CRUD API's Entity Framework database.</p>
+    <p>Base64 encoding for the first one would be <a target="_blank" href="http://localhost:7218/api/Photos/1">http://localhost:7218/api/Photos/1</a> for example</p>
 </div>
 
 @inject StillsApp.BL.IDistilleryService distilleryService
 
-<h3>Kentucky Bourbon Distilleries</h3>
+<center><h3>Kentucky Bourbon Distillery Photos</h3><hr />
 <p><img src="data:image/jpeg;base64,@distilleryService.GetPhoto(1)" alt="Description of the image" /></p>
-<p><img src="data:image/jpeg;base64,@distilleryService.GetPhoto(3)" alt="Description of the image" /></p>
+<p><img src="data:image/jpeg;base64,@distilleryService.GetPhoto(2)" alt="Description of the image" /></p>
 <p><img src="data:image/jpeg;base64,@distilleryService.GetPhoto(3)" alt="Description of the image" /></p>
 <p><img src="data:image/jpeg;base64,@distilleryService.GetPhoto(4)" alt="Description of the image" /></p>
 <p><img src="data:image/jpeg;base64,@distilleryService.GetPhoto(5)" alt="Description of the image" /></p>
 <p><img src="data:image/jpeg;base64,@distilleryService.GetPhoto(6)" alt="Description of the image" /></p>
 <p><img src="data:image/jpeg;base64,@distilleryService.GetPhoto(7)" alt="Description of the image" /></p>
+</center>
