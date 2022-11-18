@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'StillsDevApp' " />
   <ItemGroup>
     <Folder Include="DL\Migrations\Sqlite\" />
     <Folder Include="DL\Migrations\Sqlserver\" />
@@ -32,6 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-	<Content Include="UI\wwwroot\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest"/>
+	<Content Include="UI\wwwroot\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
