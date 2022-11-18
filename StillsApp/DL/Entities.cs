@@ -40,7 +40,6 @@ public class Experience
     public string? Description { get; set; }
     public string? Category { get; set; }
     public List<Ticket>? Tickets { get; set; }
-    public Distillery? Distillery { get; set; }
     public int DistilleryId { get; set; }
     public int BrandId { get; set; }
 }
