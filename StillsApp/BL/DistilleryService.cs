@@ -37,6 +37,11 @@ namespace StillsApp.BL
             return distillery;
         }
 
+        public String GetAddress(int id)
+        {
+            var address = _context.Distilleries.FirstOrDefault(i => i.Id == id);
+            return address.Addresses.FirstOrDefault().ToString();
+        }
         public String GetPhoto(int id)
         {
             var photo = _context.Photos.FirstOrDefault(i => i.Id == id);
