@@ -8,13 +8,15 @@ Statement of Work
 
 Create project proposal, code-first POCO entities and navigation properties, EF Core migrations, a cross-platform portable development database and production SQL Server contexts, basic anonymous httpGET and httpPOST API development endpoints, add the Swashbuckle UI, gather information related to domain entities, populate the development database with at least one full record or entity using the CRUD API calls, and provide a limited functionality Razor page to directly display data from the Entity Framework and database. The demonstration UI will not consume data using the API, that work will be saved for an upcoming UI design course with Code Louisville.
 
+![Screenshot](https://user-images.githubusercontent.com/83464025/202695648-213ea917-3adc-416f-b002-0e1c7a6798e6.png)
+
 INSTRUCTIONS:
 
-Clone the repo to a folder on your local system, and open the StillsApp.sln file in Visual Studio. Select Debug in the strip, then select and click StillsDevApp on the environment dropdown to bring up a sample front end in your default browser. This selects a few items from a sample distillery in the database. 
+NOTE: Requires .NET 6. Clone the repo to a folder on your local system, and open the StillsApp.sln file in Visual Studio. Select Debug in the strip, then select and click StillsDevApp on the environment dropdown to bring up a sample frontend interface in your default browser. This page will pull some data (all available photos) directly from the EF database and display them, and include links to several sample CRUD API calls and the Swashbuckle API interface. 
 
-To test the API using the Swashbuckle UI, add /swagger/index.html to the URL in the address bar (for example, http://localhost:7218/swagger/index.html). To test the Read component of each entity, select Get, Try it Out, and Execute. The results will be visible in the Responses section immediate below. 
+All links will come up in a new tab. Some knowledge of how to use the Swashbuckle UI to make API calls is expexcted. However, to test the Read component of each entity using Swashbuckle, for example, you would select Get, Try it Out, and Execute. The results will be visible in the Responses section immediate below. 
 
-Further testing of the API and CRUD capabilities will require the tester to be familiar with the Swashbuckle user interface. For example, to delete an specific review or address, a specific recrod's ID number will need to be entered as an ID parameter before pressing Execture. Using the ID 1 will delete the first entity in that database table, for example. The Update function could be used in the same way to change a field in that same record, using properly formatted JSON.
+Further testing of the API and CRUD capabilities will require the tester to be familiar with the Swashbuckle user interface. For example, to delete an specific review or address, a specific record's ID number will need to be entered as an ID parameter before pressing Execute. Using the ID 1 will delete the first entity in that database table, for example. The Update function could be used in the same way to change a field in that same record, using properly formatted JSON. The Swashbuckle UI was used to populate the database, and the Distillery service was used to demonstrate the CRUD API app's capabilities in a simple browser UI, which will be expanded in an upcoming Web Development course.
 
 ![WebApi2](https://user-images.githubusercontent.com/83464025/194877848-dc32a620-fe95-4d28-b5ef-6d5e522e9736.jpg)
 
