@@ -8,6 +8,8 @@ Statement of Work
 
 Create project proposal, code-first POCO entities and navigation properties, EF Core migrations, a cross-platform portable development database and production SQL Server contexts, basic anonymous httpGET and httpPOST API development endpoints, add the Swashbuckle UI, gather information related to domain entities, populate the development database with at least one full record or entity using the CRUD API calls, and provide a limited functionality Razor page to directly display data from the Entity Framework and database. The demonstration UI will not consume data using the API, that work will be saved for an upcoming UI design course with Code Louisville.
 
+![Screenshot](https://user-images.githubusercontent.com/83464025/202695648-213ea917-3adc-416f-b002-0e1c7a6798e6.png)
+
 INSTRUCTIONS:
 
 NOTE: Requires .NET 6. Clone the repo to a folder on your local system, and open the StillsApp.sln file in Visual Studio. Select Debug in the strip, then select and click StillsDevApp on the environment dropdown to bring up a sample frontend interface in your default browser. This page will pull some data (all available photos) directly from the EF database and display them, and include links to several sample CRUD API calls and the Swashbuckle API interface. 
